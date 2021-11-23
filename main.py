@@ -9,27 +9,14 @@ df = df.drop(columns='"Rk')
 df = df.drop(columns='EXP"')
 
 
-attDF = df['Att']
-sacksDF = df['Sk%']
-
-# ax = plt.plot(attDF)
 ax = plt.gca()  # get current axes
-ax.set_xlim([150, 400])  # set x-axis limits to 150, 400
-# ax.set_ylim([0, 14])  # set y-axis limits to 0, 14
-plt.xlabel('Att')
-plt.ylabel('Sk%')
 
+ax.set_xlim([0, 500])  # set x-axis limits to 150, 400
+ax.set_ylim([0, 50])  # set y-axis limits to 0, 14
 
-def printData():
-    #df = plt.plot(attDF)
-    print(df)  # working, outputs filtered pandastable data to terminal
+plt.xlabel('Cmp')
+plt.ylabel('TD')
 
-# fn that takes current df & outputs graph, called with button
-
-
-def graphData():
-    ax = plt.plot(attDF)
-    plt.show()
 
 # ----------------------------------------------------------------
 # Misc Code:

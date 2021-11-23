@@ -1,6 +1,5 @@
 import tkinter as tk
 from pandastable import Table
-from main import graphData, printData
 from main import df
 import matplotlib.pyplot as plt
 
@@ -10,9 +9,23 @@ window = tk.Tk()
 
 frame = tk.Frame(window)
 frame.pack()
-
+window.title('NFL Data')
 bottomFrame = tk.Frame(window)
-bottomFrame.pack(side = "bottom")
+bottomFrame.pack(side="bottom")
+
+
+def printData():
+    #df = plt.plot(attDF)
+    #print(graphX)  # working, outputs filtered pandastable data to terminal
+    #print(graphY)
+    print(df)
+# fn that takes current df & outputs graph, called with button
+
+
+def graphData():
+    plt.scatter(graphX, graphY)
+    plt.show()
+
 
 
 button1 = tk.Button(
@@ -40,8 +53,13 @@ button2.pack(side='left')
 
 pt = Table(bottomFrame, dataframe=df)
 pt.show()
-#plt.show()
+df.update(df)
+graphX = df.iloc[:, 2]
+graphY = df.iloc[:, 6]
+
+# plt.show()
 window.mainloop()
+
 # ---------------------------------------------------
 
 # window = tk.Tk()
