@@ -1,15 +1,11 @@
 import tkinter as tk
-from tkinter.constants import TRUE
 from pandastable import Table
 from main import graphData, printData
 from main import df
+import matplotlib.pyplot as plt
 
 
 window = tk.Tk()
-
-
-def getQuery():
-    print('lets go')
 
 
 frame = tk.Frame(window)
@@ -20,7 +16,7 @@ bottomFrame.pack(side = "bottom")
 
 
 button1 = tk.Button(
-    #frame,
+    frame,
     text="Output to terminal",
     width=20,
     height=5,
@@ -29,7 +25,7 @@ button1 = tk.Button(
     command=printData
 )
 button2 = tk.Button(
-    #frame,
+    frame,
     text="Output to graph",
     width=20,
     height=5,
@@ -42,8 +38,9 @@ button2 = tk.Button(
 button1.pack(side='right')
 button2.pack(side='left')
 
-pt = Table(frame, dataframe=df)
+pt = Table(bottomFrame, dataframe=df)
 pt.show()
+#plt.show()
 window.mainloop()
 # ---------------------------------------------------
 
