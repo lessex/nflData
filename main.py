@@ -1,7 +1,3 @@
-#make sure to source after cd into 'final'
-
-
-
 #import sqlite3
 import pandas as pd
 import numpy as np
@@ -20,7 +16,10 @@ sacksDF = df['Sk%']
 df = sacksDF.sort_values(ascending=False)
 #plt.plot(x, y, color='red')
 #df = df.query('Sk%'> 5.0, inplace = False)
-plt.plot(attDF, sacksDF)
+ax = plt.plot(attDF, sacksDF)
+ax = plt.gca() #get current axes
+ax.set_xlim([150, 400]) #set x-axis limits to 150, 400
+ax.set_ylim([0, 14]) #set y-axis limits to 0, 14
 plt.xlabel('Att')
 plt.ylabel('Sk%') #might have to compute sk/att stat separately
 plt.show()
