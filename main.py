@@ -14,8 +14,7 @@ ax = plt.gca()  # get current axes
 ax.set_xlim([0, 500])  # set x-axis limits to 150, 400
 ax.set_ylim([0, 50])  # set y-axis limits to 0, 14
 
-plt.xlabel('Cmp')
-plt.ylabel('TD')
+
 
 
 # ----------------------------------------------------------------
