@@ -25,6 +25,7 @@ def scatterGraphData():
     if userInputY not in {'Cmp', 'Att', 'Cmp%', 'Yds', 'TD', 'TD%', 'Int', 'Int%', 'Lng', 'Y/A', 'AY/A', 'Y/C', 'Y/G', 'Sk', 'Yds', 'NY/A', 'ANY/A', 'Sk%', '4QC', 'GWD'}:
         print('Incorrect axis value. ')
     graphY = df[userInputY]
+    plt.figure(str(userInputX) + ' per ' + str(userInputY))
     plt.xlabel(userInputX)
     plt.ylabel(userInputY)
     lastEntryX = graphX.iloc[0] + graphX.iloc[0] * 0.1 #last df value + 10% of itself
@@ -32,7 +33,8 @@ def scatterGraphData():
     ax = plt.gca()  # get current axes
     ax.set_xlim([0, lastEntryX])  # set x-axis limits to 150, 400
     ax.set_ylim([0, lastEntryY])  # set y-axis limits to 0, 14
-    plt.scatter(graphX, graphY)
+    plt.scatter(graphX, graphY, cmap= 'viridis')
+    plt.colorbar()
     plt.show()
 
 

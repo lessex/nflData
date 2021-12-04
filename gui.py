@@ -1,4 +1,5 @@
 import tkinter as tk
+from matplotlib import container
 import pandas as pd
 from pandastable import Table
 from main import df
@@ -8,14 +9,23 @@ from main import scatterGraphData
 from main import printDataTerminal
 
 
-window = tk.Tk()
+root = tk.Tk()
 
 
-frame = tk.Frame(window)
+frame = tk.Frame(root)
 frame.pack()
-window.title('NFL Data')
-bottomFrame = tk.Frame(window)
+root.title('NFL Data')
+bottomFrame = tk.Frame(root)
 bottomFrame.pack(side="bottom")
+
+cols = ['Cmp', 'Att', 'Cmp%', 'Yds', 'TD', 'TD%', 'Int', 'Int%', 'Lng', 'Y/A',
+        'AY/A', 'Y/C', 'Y/G', 'Sk', 'Yds', 'NY/A', 'ANY/A', 'Sk%', '4QC', 'GWD']
+insideVal = tk.StringVar(root)
+insideVal.set("Select an option: ")
+dropDown = tk.OptionMenu(root, insideVal, *cols)
+
+def setX():
+    graphX = df[insideVal.get()]
 
 
 button1 = tk.Button(
@@ -50,6 +60,7 @@ button3 = tk.Button(
 button1.pack(side='right')
 button2.pack(side='left')
 button3.pack(side='left')
+dropDown.pack(side='top')
 
 
 pt = Table(bottomFrame, dataframe=df)
@@ -57,22 +68,22 @@ pt.show()
 df.update(df)
 
 # plt.show()
-window.mainloop()
+root.mainloop()
 
 # ---------------------------------------------------
 
-# window = tk.Tk()
+# root = tk.Tk()
 # label = tk.Label(text="Name")
 # entry = tk.Entry()
 # label.pack()
 # entry.pack()
-# window.mainloop()
+# root.mainloop()
 # ---------------------------------------------------
 
-# window = tk.Tk()
+# root = tk.Tk()
 # text_box = tk.Text()
 # text_box.pack()
-# window.mainloop()
+# root.mainloop()
 # ---------------------------------------------------
 # label = tk.Label(
 #     text="Hello, Tkinter",
