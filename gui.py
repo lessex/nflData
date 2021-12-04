@@ -43,10 +43,19 @@ def scatterGraphData():
 
 
 def barGraphData():
-    plt.xlabel('Att')
-    plt.ylabel('TD%')
-    graphX = df['Att']
-    graphY = df['TD%']
+    print('Enter X-axis Column: ')
+    print('Choices:', 'Cmp', 'Att', 'Cmp%', 'Yds', 'TD', 'TD%', 'Int', 'Int%', 'Lng', 'Y/A', 'AY/A', 'Y/C', 'Y/G', 'Rate', 'Sk', 'Yds', 'NY/A', 'ANY/A', 'Sk%', '4QC', 'GWD')
+    userInputX = input()
+    if userInputX not in {'Cmp', 'Att', 'Cmp%', 'Yds', 'TD', 'TD%', 'Int', 'Int%', 'Lng', 'Y/A', 'AY/A', 'Y/C', 'Y/G', 'Rate', 'Sk', 'Yds', 'NY/A', 'ANY/A', 'Sk%', '4QC', 'GWD'}:
+        print('Incorrect axis value. ')
+    graphX = df[userInputX]
+    print('Enter Y-axis Column: ')
+    userInputY = input()
+    if userInputY not in {'Cmp', 'Att', 'Cmp%', 'Yds', 'TD', 'TD%', 'Int', 'Int%', 'Lng', 'Y/A', 'AY/A', 'Y/C', 'Y/G', 'Rate', 'Sk', 'Yds', 'NY/A', 'ANY/A', 'Sk%', '4QC', 'GWD'}:
+        print('Incorrect axis value. ')
+    graphY = df[userInputY]
+    plt.xlabel(userInputX)
+    plt.ylabel(userInputY)
     lastEntryX = graphX.iloc[0] + graphX.iloc[0] * 0.1 #last df value + 10% of itself
     lastEntryY = graphY.iloc[0] + graphY.iloc[0] * 0.1 #last df value + 10% of itself
     ax = plt.gca()  # get current axes
