@@ -3,7 +3,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 from pandastable import Table
 
-
 df = pd.read_csv('2021offense.csv', sep=r'\s*,\s*', engine='python')
 df = df.drop(columns='"Rk')
 df = df.drop(columns='EXP"')

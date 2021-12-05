@@ -1,12 +1,7 @@
 import tkinter as tk
-from matplotlib import container
-import pandas as pd
+import main as main
 from pandastable import Table
 from main import df
-import matplotlib.pyplot as plt
-from main import barGraphData
-from main import scatterGraphData
-from main import printDataTerminal
 
 
 root = tk.Tk()
@@ -18,49 +13,62 @@ root.title('NFL Data')
 bottomFrame = tk.Frame(root)
 bottomFrame.pack(side="bottom")
 
+xAxis = tk.StringVar()
+yAxis = tk.StringVar()
+
+def getAxes():
+    getX = xAxis.get()
+    getY = yAxis.get()
+
+xAxisLabel = tk.Label(root, text = 'X-Axis: ',font=('calibre',10, 'bold'), fg= "black")
+yAxisLabel = tk.Label(root, text = 'Y-Axis: ',font=('calibre',10, 'bold'), fg= "black")
+xAxisEntry = tk.Entry(root, textvariable = xAxis, font=('calibre',10,'normal'), bg= "white", fg= "black")
+yAxisEntry = tk.Entry(root, textvariable = yAxis, font=('calibre',10,'normal'), bg= "white", fg = "black")
+
+
 cols = ['Cmp', 'Att', 'Cmp%', 'Yds', 'TD', 'TD%', 'Int', 'Int%', 'Lng', 'Y/A',
         'AY/A', 'Y/C', 'Y/G', 'Sk', 'Yds', 'NY/A', 'ANY/A', 'Sk%', '4QC', 'GWD']
-insideVal = tk.StringVar(root)
-insideVal.set("Select an option: ")
-dropDown = tk.OptionMenu(root, insideVal, *cols)
 
-def setX():
-    graphX = df[insideVal.get()]
+submit = tk.Button(root, text = 'Submit Axes', command = getAxes, fg= "black")
 
 
-button1 = tk.Button(
+terminalButton = tk.Button(
     frame,
     text="Output to terminal",
     width=20,
     height=5,
     bg="black",
     fg="black",
-    command=printDataTerminal
+    command=main.printDataTerminal
 )
-button2 = tk.Button(
+scatterButton = tk.Button(
     frame,
     text="Scatter plot",
     width=12,
     height=5,
     bg="black",
     fg="black",
-    command=scatterGraphData
+    command=main.scatterGraphData
 )
-button3 = tk.Button(
+barButton = tk.Button(
     frame,
     text="Bar plot",
     width=12,
     height=5,
     bg="black",
     fg="black",
-    command=barGraphData
+    command=main.barGraphData
 )
 
 # label.pack()
-button1.pack(side='right')
-button2.pack(side='left')
-button3.pack(side='left')
-dropDown.pack(side='top')
+terminalButton.pack(side='right')
+scatterButton.pack(side='left')
+barButton.pack(side='left')
+submit.pack(side='right')
+xAxisLabel.pack(side = 'left')
+xAxisEntry.pack(side = 'left')
+yAxisLabel.pack(side = 'left')
+yAxisEntry.pack(side = 'left')
 
 
 pt = Table(bottomFrame, dataframe=df)
