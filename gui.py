@@ -13,12 +13,9 @@ root.title('NFL Data')
 bottomFrame = tk.Frame(root)
 bottomFrame.pack(side="bottom")
 
-xAxis = tk.StringVar()
-yAxis = tk.StringVar()
+xAxis = "Default0"
+yAxis = "Default1"
 
-def getAxes():
-    getX = xAxis.get()
-    getY = yAxis.get()
 
 xAxisLabel = tk.Label(root, text = 'X-Axis: ',font=('calibre',10, 'bold'), fg= "black")
 yAxisLabel = tk.Label(root, text = 'Y-Axis: ',font=('calibre',10, 'bold'), fg= "black")
@@ -29,7 +26,7 @@ yAxisEntry = tk.Entry(root, textvariable = yAxis, font=('calibre',10,'normal'), 
 cols = ['Cmp', 'Att', 'Cmp%', 'Yds', 'TD', 'TD%', 'Int', 'Int%', 'Lng', 'Y/A',
         'AY/A', 'Y/C', 'Y/G', 'Sk', 'Yds', 'NY/A', 'ANY/A', 'Sk%', '4QC', 'GWD']
 
-submit = tk.Button(root, text = 'Submit Axes', command = getAxes, fg= "black")
+submitButton = tk.Button(root, text = 'Submit Axes', fg= "black")
 
 
 terminalButton = tk.Button(
@@ -60,11 +57,10 @@ barButton = tk.Button(
     command=main.barGraphData
 )
 
-# label.pack()
 terminalButton.pack(side='right')
 scatterButton.pack(side='left')
 barButton.pack(side='left')
-submit.pack(side='right')
+submitButton.pack(side='right')
 xAxisLabel.pack(side = 'left')
 xAxisEntry.pack(side = 'left')
 yAxisLabel.pack(side = 'left')

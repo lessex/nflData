@@ -13,16 +13,11 @@ def printDataTerminal():
 
 
 def scatterGraphData():
-    print('Enter X-axis Column: ')
-    print('Choices:', 'Cmp', 'Att', 'Cmp%', 'Yds', 'TD', 'TD%', 'Int', 'Int%', 'Lng', 'Y/A', 'AY/A', 'Y/C', 'Y/G', 'Sk', 'Yds', 'NY/A', 'ANY/A', 'Sk%', '4QC', 'GWD')
-    userInputX = input()
-    if userInputX not in {'Cmp', 'Att', 'Cmp%', 'Yds', 'TD', 'TD%', 'Int', 'Int%', 'Lng', 'Y/A', 'AY/A', 'Y/C', 'Y/G', 'Sk', 'Yds', 'NY/A', 'ANY/A', 'Sk%', '4QC', 'GWD'}:
-        print('Incorrect axis value. ')
+    from gui import xAxisEntry
+    userInputX = xAxisEntry.get()
     graphX = df[userInputX]
-    print('Enter Y-axis Column: ')
-    userInputY = input()
-    if userInputY not in {'Cmp', 'Att', 'Cmp%', 'Yds', 'TD', 'TD%', 'Int', 'Int%', 'Lng', 'Y/A', 'AY/A', 'Y/C', 'Y/G', 'Sk', 'Yds', 'NY/A', 'ANY/A', 'Sk%', '4QC', 'GWD'}:
-        print('Incorrect axis value. ')
+    from gui import yAxisEntry
+    userInputY = yAxisEntry.get()
     graphY = df[userInputY]
     plt.figure(str(userInputX) + ' per ' + str(userInputY))
     plt.xlabel(userInputX)
@@ -38,17 +33,16 @@ def scatterGraphData():
 
 
 def barGraphData():
-    print('Enter X-axis Column: ')
-    print('Choices:', 'Cmp', 'Att', 'Cmp%', 'Yds', 'TD', 'TD%', 'Int', 'Int%', 'Lng', 'Y/A', 'AY/A', 'Y/C', 'Y/G', 'Sk', 'Yds', 'NY/A', 'ANY/A', 'Sk%', '4QC', 'GWD')
-    userInputX = input()
+    from gui import xAxisEntry, yAxisEntry
+    userInputX = xAxisEntry.get()
     if userInputX not in {'Cmp', 'Att', 'Cmp%', 'Yds', 'TD', 'TD%', 'Int', 'Int%', 'Lng', 'Y/A', 'AY/A', 'Y/C', 'Y/G', 'Sk', 'Yds', 'NY/A', 'ANY/A', 'Sk%', '4QC', 'GWD'}:
         print('Incorrect axis value. ')
     graphX = df[userInputX]
-    print('Enter Y-axis Column: ')
-    userInputY = input()
+    userInputY = yAxisEntry.get()
     if userInputY not in {'Cmp', 'Att', 'Cmp%', 'Yds', 'TD', 'TD%', 'Int', 'Int%', 'Lng', 'Y/A', 'AY/A', 'Y/C', 'Y/G', 'Sk', 'Yds', 'NY/A', 'ANY/A', 'Sk%', '4QC', 'GWD'}:
         print('Incorrect axis value. ')
     graphY = df[userInputY]
+    plt.figure(str(userInputX) + ' per ' + str(userInputY))
     plt.xlabel(userInputX)
     plt.ylabel(userInputY)
     lastEntryX = graphX.iloc[0] + graphX.iloc[0] * 0.1 #last df value + 10% of itself
