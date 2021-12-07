@@ -27,6 +27,8 @@ def scatterGraphData():
     ax = plt.gca()  # get current axes
     ax.set_xlim([0, lastEntryX])  # set x-axis limits to 150, 400
     ax.set_ylim([0, lastEntryY])  # set y-axis limits to 0, 14
+    for i in range (len(graphX)):   #labels scatterplot points with each team name
+        plt.text(x = graphX[i] + 0.2, y = graphY[i] + 0.1, s = df.Tm[i])
     plt.scatter(graphX, graphY, cmap= 'viridis')
     plt.colorbar()
     plt.show()

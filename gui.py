@@ -26,7 +26,7 @@ yAxisEntry = tk.Entry(root, textvariable = yAxis, font=('calibre',10,'normal'), 
 cols = ['Cmp', 'Att', 'Cmp%', 'Yds', 'TD', 'TD%', 'Int', 'Int%', 'Lng', 'Y/A',
         'AY/A', 'Y/C', 'Y/G', 'Sk', 'Yds', 'NY/A', 'ANY/A', 'Sk%', '4QC', 'GWD']
 
-submitButton = tk.Button(root, text = 'Submit Axes', fg= "black")
+queryButton = tk.Button(root, text = 'Query the DB', fg= "black")
 
 
 terminalButton = tk.Button(
@@ -60,7 +60,7 @@ barButton = tk.Button(
 terminalButton.pack(side='right')
 scatterButton.pack(side='left')
 barButton.pack(side='left')
-submitButton.pack(side='right')
+queryButton.pack(side='right')
 xAxisLabel.pack(side = 'left')
 xAxisEntry.pack(side = 'left')
 yAxisLabel.pack(side = 'left')
