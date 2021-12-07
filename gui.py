@@ -15,18 +15,21 @@ bottomFrame.pack(side="bottom")
 
 xAxis = "Default0"
 yAxis = "Default1"
+userQuery = "Att > 300"
 
 
 xAxisLabel = tk.Label(root, text = 'X-Axis: ',font=('calibre',10, 'bold'), fg= "black")
 yAxisLabel = tk.Label(root, text = 'Y-Axis: ',font=('calibre',10, 'bold'), fg= "black")
-xAxisEntry = tk.Entry(root, textvariable = xAxis, font=('calibre',10,'normal'), bg= "white", fg= "black")
-yAxisEntry = tk.Entry(root, textvariable = yAxis, font=('calibre',10,'normal'), bg= "white", fg = "black")
+xAxisEntry = tk.Entry(root, textvariable = xAxis, font=('calibre',10,'normal'), bg= "white", fg= "black", width=10)
+yAxisEntry = tk.Entry(root, textvariable = yAxis, font=('calibre',10,'normal'), bg= "white", fg = "black", width=10)
+queryLabel = tk.Label(root, text = 'Enter Query: ',font=('calibre',10, 'bold'), fg= "black", width = 10)
+queryEntry = tk.Entry(root, textvariable = userQuery, font=('calibre',10,'normal'), bg= "white", fg = "black")
 
 
 cols = ['Cmp', 'Att', 'Cmp%', 'Yds', 'TD', 'TD%', 'Int', 'Int%', 'Lng', 'Y/A',
         'AY/A', 'Y/C', 'Y/G', 'Sk', 'Yds', 'NY/A', 'ANY/A', 'Sk%', '4QC', 'GWD']
 
-queryButton = tk.Button(root, text = 'Query the DB', fg= "black")
+queryButton = tk.Button(root, text = 'Query the DB', fg= "black", command=main.queryDB)
 
 
 terminalButton = tk.Button(
@@ -65,6 +68,8 @@ xAxisLabel.pack(side = 'left')
 xAxisEntry.pack(side = 'left')
 yAxisLabel.pack(side = 'left')
 yAxisEntry.pack(side = 'left')
+queryLabel.pack(side = 'left')
+queryEntry.pack(side = 'left')
 
 
 pt = Table(bottomFrame, dataframe=df)

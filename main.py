@@ -12,6 +12,13 @@ def printDataTerminal():
     print(df)
 
 
+def queryDB():
+    from gui import queryEntry
+    userInputQuery = queryEntry.get()
+    queryDf = df.query(userInputQuery)
+    print(queryDf)
+
+
 def scatterGraphData():
     from gui import xAxisEntry
     userInputX = xAxisEntry.get()
@@ -54,21 +61,3 @@ def barGraphData():
     ax.set_ylim([0, lastEntryY])  # set y-axis limits to 0, 14
     plt.bar(graphX, graphY)
     plt.show()
-
-
-
-
-
-
-# ----------------------------------------------------------------
-# Misc Code:
-#import sqlite3
-#headers = ['Rk','Tm','G','Cmp','Att','Cmp%','Yds',"TD","TD%","Int","Int%","Lng","Y/A","AY/A",'Y/C','Y/G','Rate','Sk','Yds','NY/A','ANY/A','Sk%','4QC','GWD','EXP']
-#df = df.sort_values(ascending=False)
-#plt.plot(x, y, color='red')
-#df = df.query('Sk%'> 5.0, inplace = False)
-
-#df.assign(AttPerSack=lambda x: df['Att'] / df['Sk%'])
-
-
-# ----------------------------------------------------------------
