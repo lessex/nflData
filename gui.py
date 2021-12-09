@@ -13,9 +13,9 @@ root.title('NFL Data')
 bottomFrame = tk.Frame(root)
 bottomFrame.pack(side="bottom")
 
-xAxis = "Default0"
-yAxis = "Default1"
-userQuery = "Att > 300"
+xAxis = "Default0" #initializing string, will be overwritten with user's input
+yAxis = "Default1" #initializing string, will be overwritten with user's input
+userQuery = "Att > 300" #initializing string, will be overwritten with user's input
 
 
 xAxisLabel = tk.Label(root, text = 'X-Axis: ',font=('calibre',10, 'bold'), fg= "black")
@@ -72,34 +72,8 @@ queryLabel.pack(side = 'left')
 queryEntry.pack(side = 'left')
 
 
-pt = Table(bottomFrame, dataframe=df)
-pt.show()
-df.update(df)
+pt = Table(bottomFrame, dataframe=df) #create our table from dataframe
+pt.show() #display table
+df.update(df) #update current database
 
-# plt.show()
 root.mainloop()
-
-# ---------------------------------------------------
-
-# root = tk.Tk()
-# label = tk.Label(text="Name")
-# entry = tk.Entry()
-# label.pack()
-# entry.pack()
-# root.mainloop()
-# ---------------------------------------------------
-
-# root = tk.Tk()
-# text_box = tk.Text()
-# text_box.pack()
-# root.mainloop()
-# ---------------------------------------------------
-# label = tk.Label(
-#     text="Hello, Tkinter",
-#     foreground="white",  # Set the text color to white
-#     background="black",  # Set the background color to black
-#     width=10,
-#     height=10
-# )
-#entry = tk.Entry(fg="white", bg="black", width=50)
-# ---------------------------------------------------
