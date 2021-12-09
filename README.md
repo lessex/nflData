@@ -1,1 +1,4 @@
-# nflData
+3rd Party Libraries: (pip)
+matplotlib
+pandas
+pandastable
