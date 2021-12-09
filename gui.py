@@ -4,34 +4,34 @@ from pandastable import Table
 from main import df
 
 
-root = tk.Tk()
+root = tk.Tk() #create root window for gui
 
-
-frame = tk.Frame(root)
-frame.pack()
-root.title('NFL Data')
-bottomFrame = tk.Frame(root)
-bottomFrame.pack(side="bottom")
+frame = tk.Frame(root) #create frame for main gui window
+frame.pack() #place the frame within gui
+root.title('NFL Data') #set title of root window
+bottomFrame = tk.Frame(root) #create bottomFrame
+bottomFrame.pack(side="bottom") #place bottomFrame at bottom of gui
 
 xAxis = "Default0" #initializing string, will be overwritten with user's input
 yAxis = "Default1" #initializing string, will be overwritten with user's input
 userQuery = "Att > 300" #initializing string, will be overwritten with user's input
 
 
-xAxisLabel = tk.Label(root, text = 'X-Axis: ',font=('calibre',10, 'bold'), fg= "black")
-yAxisLabel = tk.Label(root, text = 'Y-Axis: ',font=('calibre',10, 'bold'), fg= "black")
-xAxisEntry = tk.Entry(root, textvariable = xAxis, font=('calibre',10,'normal'), bg= "white", fg= "black", width=10)
-yAxisEntry = tk.Entry(root, textvariable = yAxis, font=('calibre',10,'normal'), bg= "white", fg = "black", width=10)
-queryLabel = tk.Label(root, text = 'Enter Query: ',font=('calibre',10, 'bold'), fg= "black", width = 10)
-queryEntry = tk.Entry(root, textvariable = userQuery, font=('calibre',10,'normal'), bg= "white", fg = "black")
+xAxisLabel = tk.Label(root, text = 'X-Axis: ',font=('calibre',10, 'bold'), fg= "black") #display "X-Axis: " text within gui window
+yAxisLabel = tk.Label(root, text = 'Y-Axis: ',font=('calibre',10, 'bold'), fg= "black") #display "Y-Axis: " text within gui window
+xAxisEntry = tk.Entry(root, textvariable = xAxis, font=('calibre',10,'normal'), bg= "white", fg= "black", width=10) #gather input from user for x-axis
+yAxisEntry = tk.Entry(root, textvariable = yAxis, font=('calibre',10,'normal'), bg= "white", fg = "black", width=10) #gather input from user for y-axis
+queryLabel = tk.Label(root, text = 'Enter Query: ',font=('calibre',10, 'bold'), fg= "black", width = 10) #display "Enter Query: " text within gui window
+queryEntry = tk.Entry(root, textvariable = userQuery, font=('calibre',10,'normal'), bg= "white", fg = "black") #gather input from user for query
 
-
-cols = ['Cmp', 'Att', 'Cmp%', 'Yds', 'TD', 'TD%', 'Int', 'Int%', 'Lng', 'Y/A',
-        'AY/A', 'Y/C', 'Y/G', 'Sk', 'Yds', 'NY/A', 'ANY/A', 'Sk%', '4QC', 'GWD']
-
-queryButton = tk.Button(root, text = 'Query the DB', fg= "black", command=main.queryDB)
-
-
+#'Query the DB' button on gui, when pressed queryDB() is executed
+queryButton = tk.Button(
+    root, 
+    text = 'Query the DB', 
+    fg= "black", 
+    command=main.queryDB
+)
+#'Output to terminal' button on gui, when pressed printDataTerminal() is executed
 terminalButton = tk.Button(
     frame,
     text="Output to terminal",
@@ -41,6 +41,7 @@ terminalButton = tk.Button(
     fg="black",
     command=main.printDataTerminal
 )
+#'Scatter Plot' button on gui, when pressed scatterGraphData() is executed
 scatterButton = tk.Button(
     frame,
     text="Scatter plot",
@@ -50,6 +51,7 @@ scatterButton = tk.Button(
     fg="black",
     command=main.scatterGraphData
 )
+#'Bar Graph' button on gui, when pressed queryDB() is executed
 barButton = tk.Button(
     frame,
     text="Bar plot",
@@ -59,7 +61,7 @@ barButton = tk.Button(
     fg="black",
     command=main.barGraphData
 )
-
+#pack buttons into gui
 terminalButton.pack(side='right')
 scatterButton.pack(side='left')
 barButton.pack(side='left')
@@ -76,4 +78,4 @@ pt = Table(bottomFrame, dataframe=df) #create our table from dataframe
 pt.show() #display table
 df.update(df) #update current database
 
-root.mainloop()
+root.mainloop() #execute entire gui.py file
