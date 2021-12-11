@@ -36,7 +36,7 @@ def scatterGraphData(): #outputs scatterplot based on user's input for x & y axe
     ax.set_xlim([firstEntryX, lastEntryX])  # set x-axis limits to first & last entries
     ax.set_ylim([firstEntryY, lastEntryY])  # set x-axis limits to first & last entries
     for i in range (len(graphX)):   #labels scatterplot points with each team name
-        plt.text(x = graphX[i], y = graphY[i] + 0.1, s = df.Tm[i], fontdict=dict(color = 'black', size = 10), bbox = dict(facecolor='cyan', edgecolor='black', boxstyle='round,pad=0.5', alpha = 0.5))
+        plt.text(x = graphX[i], y = graphY[i] + 0.1, s = df.Tm[i], fontdict=dict(color = 'black', size = 10), bbox = dict(facecolor='cyan', edgecolor='black', boxstyle='round,pad=0.5', alpha = 0.2))
     plt.scatter(graphX, graphY, cmap= 'viridis')
     plt.show() #show the graph
 
