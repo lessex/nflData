@@ -2,10 +2,10 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from pandastable import Table
 
-df = pd.read_csv('2021offense.csv', sep=r'\s*,\s*', engine='python') #read in database (any .csv file)
-df = df.drop(columns='"Rk') #remove non-useful columns from database
-df = df.drop(columns='EXP"')
-df = df.drop(columns='Rate')
+df = pd.read_csv('nhl21_22.csv', sep=r'\s*,\s*', engine='python') #read in database (any .csv file)
+# df = df.drop(columns='"Rk') #remove non-useful columns from database
+# df.rename(columns={"Unnamed: 1": "Tm"})
+# df = df.drop(columns='Rate')
 
 def printDataTerminal(): #output current database directly to terminal
     print(df)
